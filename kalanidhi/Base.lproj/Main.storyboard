@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-346" y="602"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="9Z1-zw-wwh">
             <objects>
                 <viewController id="w87-Oc-BHI" sceneMemberID="viewController">
@@ -34,12 +34,13 @@
                         <viewLayoutGuide key="safeArea" id="keC-5S-aFO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="OmB-j9-tfb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sy-Ng-0gS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="645" y="566"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="n2r-ke-Cm3">
             <objects>
                 <viewController id="JXp-gN-Tqx" sceneMemberID="viewController">
@@ -49,12 +50,13 @@
                         <viewLayoutGuide key="safeArea" id="QYk-6t-eDr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="54f-BB-gFK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7y6-la-G6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1552" y="601"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="pqQ-Zs-a6Y">
             <objects>
                 <viewController id="GfD-y3-58n" sceneMemberID="viewController">
@@ -64,6 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="wgP-vc-gPy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Nf5-yx-szw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUd-Ej-dwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,11 +78,15 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3JU-E0-NSw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5hJ-6x-zdS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7VH-hz-X5X"/>
+                        <segue destination="w87-Oc-BHI" kind="relationship" relationship="viewControllers" id="YlG-7Y-KBn"/>
+                        <segue destination="JXp-gN-Tqx" kind="relationship" relationship="viewControllers" id="8Z7-MB-WO7"/>
+                        <segue destination="GfD-y3-58n" kind="relationship" relationship="viewControllers" id="uhD-pc-UCx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IA-KZ-il6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
