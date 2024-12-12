@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="-347.32824427480915" y="1500.7042253521126"/>
         </scene>
-        <!--Stocks-->
+        <!--Stocks App-->
         <scene sceneID="9Z1-zw-wwh">
             <objects>
                 <viewController id="w87-Oc-BHI" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="TDJ-6K-Xd1">
-                                <rect key="frame" x="0.0" y="-10" width="393" height="862"/>
+                                <rect key="frame" x="0.0" y="-1.6666666666666856" width="393" height="853.66666666666674"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="keC-5S-aFO"/>
@@ -70,7 +70,7 @@
                             <constraint firstItem="keC-5S-aFO" firstAttribute="trailing" secondItem="TDJ-6K-Xd1" secondAttribute="trailing" id="fpd-fC-HrW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Stocks" id="JtY-Pc-QZI"/>
+                    <navigationItem key="navigationItem" title="Stocks App" id="JtY-Pc-QZI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sy-Ng-0gS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,7 +163,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dqU-EG-VZb">
-                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -185,7 +185,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="IVv-8w-YzX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -228,7 +228,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0gw-yH-wiP">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
