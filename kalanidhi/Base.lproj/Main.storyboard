@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="TDJ-6K-Xd1">
-                                <rect key="frame" x="0.0" y="-1.6666666666666856" width="393" height="853.66666666666674"/>
+                                <rect key="frame" x="0.0" y="-10" width="393" height="862"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="keC-5S-aFO"/>
@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="bXd-hX-7dw">
-                                <rect key="frame" x="0.0" y="-1.6666666666666856" width="393" height="850.66666666666674"/>
+                                <rect key="frame" x="0.0" y="-10" width="393" height="859"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QYk-6t-eDr"/>
@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="MPg-6E-wuD">
-                                <rect key="frame" x="0.0" y="-1.6666666666666856" width="393" height="855.66666666666674"/>
+                                <rect key="frame" x="0.0" y="-10" width="393" height="864"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wgP-vc-gPy"/>
@@ -185,7 +185,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="IVv-8w-YzX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -201,8 +201,9 @@
         <scene sceneID="jfM-P5-bSy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uG5-gC-UDZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Auction" image="hammer" catalog="system" selectedImage="hammer.fill" id="54f-BB-gFK">
+                    <tabBarItem key="tabBarItem" title="Auction" image="hammerU" landscapeImage="backGround" selectedImage="hammerF" id="54f-BB-gFK">
                         <color key="badgeColor" red="0.89803922179999995" green="0.87843137979999997" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="kua-vd-xB0">
@@ -227,7 +228,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0gw-yH-wiP">
-                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -245,8 +246,8 @@
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chart.bar" catalog="system" width="128" height="89"/>
         <image name="chart.bar.fill" catalog="system" width="128" height="90"/>
-        <image name="hammer" catalog="system" width="128" height="117"/>
-        <image name="hammer.fill" catalog="system" width="128" height="117"/>
+        <image name="hammerF" width="28" height="26"/>
+        <image name="hammerU" width="28" height="26"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person" catalog="system" width="128" height="121"/>
