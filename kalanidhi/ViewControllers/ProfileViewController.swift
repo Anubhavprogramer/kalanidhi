@@ -9,13 +9,20 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-//    @IBOutlet var About: UIView!
+    @IBOutlet var About: UIView!
+    @IBOutlet var cartView: UIView!
+    @IBOutlet var favView: UIView!
+    @IBOutlet var portfolioCard: UIView!
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        About.layer.cornerRadius = 17
+        About.layer.cornerRadius = 17
+        cartView.layer.cornerRadius = 17
+        favView.layer.cornerRadius = 17
+        portfolioCard.layer.cornerRadius = 17
 
         // Do any additional setup after loading the view.
     }
