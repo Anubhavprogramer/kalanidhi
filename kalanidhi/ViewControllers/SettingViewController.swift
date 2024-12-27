@@ -14,10 +14,10 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     
 //    @IBOutlet var DetailsLabel: UILabel!
     
-    var profileSettings = ["Edit Name" : "Sanjh Arora", "Edit User Name" : "@Sanjh_Arora", "About" : "Inspirational designs"]
-    var accountSettings = ["Change Password": "*****", "Two-Factor Authentication": "Enabled", "Email": "SanjhArora@gmail.com", "Phone": "+91 9876543210"]
-    var currencySetting = ["Set Default Currency": "USD", "Set Default Language": "English"]
-    
+//    var profileSettings = ["Edit Name" : "Sanjh Arora", "Edit User Name" : "@Sanjh_Arora", "About" : "Inspirational designs"]
+//    var accountSettings = ["Change Password": "*****", "Two-Factor Authentication": "Enabled", "Email": "SanjhArora@gmail.com", "Phone": "+91 9876543210"]
+//    var currencySetting = ["Set Default Currency": "USD", "Set Default Language": "English"]
+//    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -37,30 +37,66 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
+        let setting: Setting
         
-        let label = cell.viewWithTag(18) as? UILabel
-        
-        switch indexPath.section {
+        switch indexPath.section{
         case 0:
-            let key = Array(profileSettings.keys)[indexPath.row]
-            cell.textLabel?.text = key
-            label?.text = profileSettings[key]
+            setting = profileSettings[indexPath.row]
         case 1:
-            let key = Array(accountSettings.keys)[indexPath.row]
-            cell.textLabel?.text = key
-            label?.text = accountSettings[key]
+            setting = accountSettings[indexPath.row]
         case 2:
-            let key = Array(currencySetting.keys)[indexPath.row]
-            cell.textLabel?.text = key
-            label?.text = currencySetting[key]
+            setting = generalSetting[indexPath.row]
         default:
-            break
+            fatalError("Invalid section")
+        }
+        
+//        let label = cell.viewWithTag(18) as? UILabel
+        cell.textLabel?.text = setting.title
+        
+        switch setting.inputType {
+        case .textField:
+            let valueLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150,y: 0,width: 150,height: cell.contentView.frame.height))
+            valueLabel.textAlignment = .right
+            valueLabel.text = setting.value
+            valueLabel.textColor = .gray
+            cell.contentView.addSubview(valueLabel)
+        case .secureTextField:
+            let secureLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150, y: 0,width: 140, height: cell.contentView.frame.height))
+            secureLabel.textAlignment = .right
+            secureLabel.textColor = .gray
+            cell.contentView.addSubview(secureLabel)
+        case .toggleSwitch:
+            let toggleSwitch = UISwitch(frame: CGRect(x: cell.contentView.frame.width - 60, y: (cell.contentView.frame.height - 31)/2, width: 60, height:0))
+            toggleSwitch.isOn = (setting.value == "Enabled")
+            toggleSwitch.tag = indexPath.section * 100 + indexPath.row
+            toggleSwitch.addTarget(self, action: #selector(toggleSwitchChanged(_:)), for: .valueChanged)
+            cell.contentView.addSubview(toggleSwitch)
+            
         }
         
         tableView.layer.cornerRadius = 17
         
         return cell
         
+    }
+    
+    @objc func toggleSwitchChanged(_ sender: UISwitch) {
+        let section = sender.tag
+        let row = sender.tag % 100
+        
+        switch section {
+        case 0:
+            break
+            
+        case 1:
+            break
+            
+        case 2:
+            break
+            
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -75,32 +111,56 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let section = indexPath.section
-        let row = indexPath.row
+        var setting: Setting = Setting(title: "", value: "", inputType: .textField)
         
-        var selectedSetting : (key: String, value: String?) = ("", "")
-        
-        switch section {
+        switch indexPath.section {
         case 0:
-            let key = Array(profileSettings.keys)[row]
-            selectedSetting = (key, profileSettings[key])
+            setting = profileSettings[indexPath.row]
             
         case 1:
-            let key = Array(accountSettings.keys)[row]
-            selectedSetting = (key, accountSettings[key])
+            setting = accountSettings[indexPath.row]
         case 2:
-            let key = Array(currencySetting.keys)[row]
-            selectedSetting = (key, currencySetting[key])
+            setting = generalSetting[indexPath.row]
         default:
             break
         }
         
-        showPopup(for: selectedSetting, section: section, row: row)
+        if setting.inputType == .secureTextField{
+            showSecureTextInput(for: setting, section: indexPath.section, row: indexPath.row)
+        }
+        else {
+            showPopup(for: setting, section: indexPath.section, row: indexPath.row)
+        }
     }
     
-    func showPopup(for setting: (key: String, value: String?), section: Int, row: Int){
+    func showSecureTextInput(for setting: Setting, section: Int, row: Int){
         let alertController = UIAlertController(
-            title: "Update \(setting.key)",
+            title: "Update \(setting.title)",
+            message: "Enter a new Password",
+            preferredStyle: .alert
+        )
+        
+        alertController.addTextField{ textField in
+            textField.text = setting.value
+            textField.placeholder = "New Password"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default){ _ in
+            if let newValue = alertController.textFields?.first?.text{
+                self.updateValue(newValue, section: section, row:row)
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showPopup(for setting: Setting, section: Int, row: Int){
+        let alertController = UIAlertController(
+            title: "Update \(setting.title)",
             message: setting.value,
             preferredStyle: .alert
         )
@@ -126,16 +186,13 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     func updateValue(_ newValue: String, section: Int, row: Int){
         switch section{
             case 0:
-                let key = Array(profileSettings.keys)[row]
-                profileSettings[key] = newValue
+            profileSettings[row].value = newValue
             
             case 1:
-                let key = Array(accountSettings.keys)[row]
-                accountSettings[key] = newValue
+            accountSettings[row].value = newValue
             
             case 2:
-                let key = Array(currencySetting.keys)[row]
-                currencySetting[key] = newValue
+            generalSetting[row].value = newValue
             
             default:
                 break
