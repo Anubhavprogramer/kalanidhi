@@ -74,7 +74,8 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             
         }
         
-        tableView.layer.cornerRadius = 17
+//        tableView.layer.cornerRadius = 17
+//        cell.layer.cornerRadius = 17
         
         return cell
         
