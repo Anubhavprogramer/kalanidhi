@@ -1,38 +1,25 @@
-//
-//  YourProtfolioCollectionViewCell.swift
-//  kalanidhi
-//
-//  Created by Anubhav Dubey on 30/12/24.
-//
-
 import UIKit
+
 
 class YourProtfolioCollectionViewCell: UICollectionViewCell {
     
-//  MARK: - Outlets
-
+    // MARK: - Outlets
     @IBOutlet var xibPainting: UIImageView!
+    @IBOutlet var price: UILabel!
+    @IBOutlet var rate: UILabel!
     
-//    MARK: member variables
     
+    
+    
+    // MARK: - Member Variables
     private let gradientLayer = CAGradientLayer()
     
-//    MARK: viewdidLoad
-    
+    // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupCell()
     }
     
-    
-//    MARK: subordinate Fumnctions
-//    func updateTheCard(){
-//
-//    }
-    
-//
-    
-
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -45,22 +32,30 @@ class YourProtfolioCollectionViewCell: UICollectionViewCell {
             height: gradientHeight
         )
         
-        // Configure the gradient layer
+        // Update the gradient layer frame and properties
         gradientLayer.frame = gradientFrame
         gradientLayer.colors = [
             UIColor.clear.cgColor,
-            UIColor.black.withAlphaComponent(0.8).cgColor // Darker effect at the bottom
+            UIColor.black.withAlphaComponent(0.5).cgColor
         ]
-        gradientLayer.locations = [0.0, 1.0] // Gradual fade from clear to black
+        gradientLayer.locations = [0.0, 1.0]
         
-        // Add the gradient layer to the image view
+        // Ensure gradient layer is added only once
         if gradientLayer.superlayer == nil {
-            xibPainting.layer.addSublayer(gradientLayer)
+            xibPainting.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
-
     
+    // MARK: - Subordinate Functions
+    func setupCell() {
+        xibPainting.layer.cornerRadius = 18
+        xibPainting.clipsToBounds = true
+        xibPainting.contentMode = .scaleAspectFill
+    }
     
-    
-
+    func updateTheCard(with data: YourPortfolioHomePageCard) {
+        xibPainting.image = UIImage(named: data.Image)
+        price.text = "$\(data.cost)"
+        rate.text = "\(data.rate)%"
+    }
 }
