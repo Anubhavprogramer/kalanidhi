@@ -1,6 +1,6 @@
 import UIKit
 
-private let paintings = ["image1", "image2", "image1", "image1"]
+//private let paintings = ["image1", "image2", "image1", "image1"]
 
 class ViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
    
@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Paintings array count: \(paintings.count)")
+        print("Paintings array count: \(YourPortfolioHomePageCardData.count)")
         
         // Set up collection view
         
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 350, height: 200)
+        layout.itemSize = CGSize(width: 300, height: 150)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.scrollDirection = .horizontal
@@ -52,15 +52,15 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
 //    MARK: Protocols
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return paintings.count
+        return YourPortfolioHomePageCardData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierForPortfolio , for: indexPath) as! YourProtfolioCollectionViewCell
         
-        cell.xibPainting.image = UIImage(named: paintings[indexPath.row])
-        cell.xibPainting.layer.cornerRadius = 18
-        cell.xibPainting.layer.masksToBounds = true
+        let card = YourPortfolioHomePageCardData[indexPath.row]
+        
+        cell.updateTheCard(with: card)
         
         return cell
     }
