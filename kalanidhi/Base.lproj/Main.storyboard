@@ -14,7 +14,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="kalanidhi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -24,8 +24,29 @@
                                     <constraint firstAttribute="width" constant="393" id="FVf-rc-HEm"/>
                                 </constraints>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e0z-OM-j7K">
-                                <rect key="frame" x="5" y="270.33333333333331" width="387.66666666666669" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIH-UY-dcs">
+                                <rect key="frame" x="16" y="234" width="152.66666666666666" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Portfolio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkR-gx-sNN">
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="BOK-ka-cEA"/>
+                                            <constraint firstAttribute="width" constant="113" id="x6p-QU-1g1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49019610879999997" blue="0.50588238240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auP-lH-vmQ">
+                                        <rect key="frame" x="113.00000000000001" y="0.0" width="39.666666666666671" height="21"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e0z-OM-j7K">
+                                <rect key="frame" x="5" y="270" width="10" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="bT1-rY-Tca"/>
@@ -39,7 +60,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="YourPortfolio" id="KDI-CS-Fyr" customClass="YourProtfolioCollectionViewCell" customModule="kalanidhi" customModuleProvider="target">
-                                        <rect key="frame" x="22.333333333333332" y="0.0" width="343" height="184"/>
+                                        <rect key="frame" x="-166.66666666666666" y="0.0" width="343" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jZc-Ii-g0x">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="184"/>
@@ -49,48 +70,74 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="Search Artworks, Artist, Auctions" translatesAutoresizingMaskIntoConstraints="NO" id="Zfs-2Z-smf">
-                                <rect key="frame" x="0.0" y="163.33333333333334" width="387.66666666666669" height="56"/>
+                            <searchBar contentMode="redraw" ambiguous="YES" placeholder="Search Artworks, Artist, Auctions" translatesAutoresizingMaskIntoConstraints="NO" id="Zfs-2Z-smf">
+                                <rect key="frame" x="0.0" y="163" width="10" height="56"/>
                                 <color key="barTintColor" red="0.89803922179999995" green="0.87843137979999997" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RVG-r8-Scn"/>
                                 </connections>
                             </searchBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIH-UY-dcs">
-                                <rect key="frame" x="16" y="234.33333333333334" width="132.33333333333334" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYg-Wv-xBj">
+                                <rect key="frame" x="16" y="435" width="179.66666666666666" height="21"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Portfolio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkR-gx-sNN">
-                                        <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ongoing Auction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBX-vR-8yY">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="BOK-ka-cEA"/>
-                                            <constraint firstAttribute="width" constant="98" id="x6p-QU-1g1"/>
+                                            <constraint firstAttribute="width" constant="140" id="5km-0a-wYD"/>
+                                            <constraint firstAttribute="height" constant="21" id="BAH-KB-0gv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49019610879999997" blue="0.50588238240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auP-lH-vmQ">
-                                        <rect key="frame" x="92.666666666666671" y="0.0" width="39.666666666666671" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hp-Vv-sWk">
+                                        <rect key="frame" x="140" y="0.0" width="39.666666666666657" height="21"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-hi-4Pe">
+                                <rect key="frame" x="5" y="476" width="381" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FER-EB-ACl">
+                                    <size key="itemSize" width="260" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OngoingAuction" id="05W-EU-uvE" customClass="OngoingCollectionViewCell" customModule="kalanidhi" customModuleProvider="target">
+                                        <rect key="frame" x="60.666666666666664" y="0.0" width="260" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gny-DH-ide">
+                                            <rect key="frame" x="0.0" y="0.0" width="260" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="260" height="128"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.89803922179999995" green="0.87843137979999997" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="e0z-OM-j7K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="1zS-b2-iIi"/>
-                            <constraint firstItem="e0z-OM-j7K" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="5" id="593-XU-fnr"/>
-                            <constraint firstItem="Zfs-2Z-smf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8oc-5T-vy4"/>
-                            <constraint firstItem="e0z-OM-j7K" firstAttribute="top" secondItem="VIH-UY-dcs" secondAttribute="bottom" constant="15" id="FTZ-9R-zbi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VIH-UY-dcs" secondAttribute="trailing" constant="239.33000000000001" id="KG7-u6-JZS"/>
-                            <constraint firstItem="VIH-UY-dcs" firstAttribute="top" secondItem="Zfs-2Z-smf" secondAttribute="bottom" constant="15" id="Qnh-vT-JpY"/>
-                            <constraint firstItem="Zfs-2Z-smf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hTM-ch-jgr"/>
-                            <constraint firstItem="Zfs-2Z-smf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iVC-9G-NlD"/>
-                            <constraint firstItem="VIH-UY-dcs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="meg-7J-awh"/>
+                            <constraint firstItem="e0z-OM-j7K" firstAttribute="top" secondItem="VIH-UY-dcs" secondAttribute="bottom" constant="15" id="7iK-em-ywJ"/>
+                            <constraint firstItem="VIH-UY-dcs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8UZ-UL-PLN"/>
+                            <constraint firstAttribute="trailing" secondItem="Zfs-2Z-smf" secondAttribute="trailing" id="HPc-SF-mg4"/>
+                            <constraint firstItem="Zfs-2Z-smf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NFr-0V-YOc"/>
+                            <constraint firstItem="e0z-OM-j7K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="270" id="NqM-yf-Pyb"/>
+                            <constraint firstAttribute="trailing" secondItem="0hu-hi-4Pe" secondAttribute="trailing" constant="5" id="Umd-7e-jKA"/>
+                            <constraint firstItem="e0z-OM-j7K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Yd9-OV-hcA"/>
+                            <constraint firstItem="CYg-Wv-xBj" firstAttribute="top" secondItem="e0z-OM-j7K" secondAttribute="bottom" constant="15" id="ZbG-vh-SSk"/>
+                            <constraint firstItem="e0z-OM-j7K" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="5" id="cAW-Cp-9za"/>
+                            <constraint firstItem="VIH-UY-dcs" firstAttribute="top" secondItem="Zfs-2Z-smf" secondAttribute="bottom" constant="15" id="dXl-ii-bLH"/>
+                            <constraint firstItem="0hu-hi-4Pe" firstAttribute="top" secondItem="CYg-Wv-xBj" secondAttribute="bottom" constant="15" id="gQi-yq-ISd"/>
+                            <constraint firstItem="Zfs-2Z-smf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="163" id="jIP-Uv-D75"/>
+                            <constraint firstItem="0hu-hi-4Pe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="sPp-bc-1Ag"/>
+                            <constraint firstItem="CYg-Wv-xBj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tO9-rB-heV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="कलाnidhi" largeTitleDisplayMode="always" id="nlb-Cb-daN">
