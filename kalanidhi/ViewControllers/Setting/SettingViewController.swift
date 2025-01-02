@@ -231,7 +231,11 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
         
-        profilePicture.clipsToBounds = true
+        
+        profilePicture?.clipsToBounds = true
+//        profilePicture.layer.borderWidth = 1
+        
+        //profilePicture.clipsToBounds
 
         // Do any additional setup after loading the view.
     }
@@ -274,7 +278,20 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         
         profilePicture.image = selectedImage
+        
+        
+        
+        profilePicture?.layer.cornerRadius = (profilePicture?.frame.size.width ?? 0.0) / 2
+        
+        
+        profilePicture?.clipsToBounds = true
+        profilePicture.layer.borderWidth = 1
+        
+        
+        
         dismiss(animated: true, completion: nil)
+        
+        
         
     }
 
