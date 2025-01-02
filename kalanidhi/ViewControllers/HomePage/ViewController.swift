@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
 //    MARK: Member Variables
     
     let reuseIdentifierForPortfolio = "YourPortfolio"
+    let reuseIdentifierForOngoingAuction = "OngoingAuction"
     let spacing: CGFloat = 10
     
    
@@ -21,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Paintings array count: \(YourPortfolioHomePageCardData.count)")
+//        print("Paintings array count: \(YourPortfolioHomePageCardData.count)")
         
         // Set up collection view
         
