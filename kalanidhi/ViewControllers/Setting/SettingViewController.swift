@@ -17,7 +17,16 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
 //    var profileSettings = ["Edit Name" : "Sanjh Arora", "Edit User Name" : "@Sanjh_Arora", "About" : "Inspirational designs"]
 //    var accountSettings = ["Change Password": "*****", "Two-Factor Authentication": "Enabled", "Email": "SanjhArora@gmail.com", "Phone": "+91 9876543210"]
 //    var currencySetting = ["Set Default Currency": "USD", "Set Default Language": "English"]
-//    
+    
+//    var cornorRadius: CGFloat =
+    
+    
+    @IBOutlet var profilePicture: UIImageView!
+    
+    
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -36,7 +45,8 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         
        
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? settingsTableViewCell
+        
         let setting: Setting
         
         switch indexPath.section{
@@ -51,33 +61,36 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
 //        let label = cell.viewWithTag(18) as? UILabel
-        cell.textLabel?.text = setting.title
+        cell?.textLabel?.text = setting.title
         
         switch setting.inputType {
         case .textField:
-            let valueLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150,y: 0,width: 150,height: cell.contentView.frame.height))
-            valueLabel.textAlignment = .right
-            valueLabel.text = setting.value
-            valueLabel.textColor = .gray
-            cell.contentView.addSubview(valueLabel)
+//            let valueLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150,y: 0,width: 150,height: cell.contentView.frame.height))
+//            valueLabel.textAlignment = .right
+//            valueLabel.text = setting.value
+//            valueLabel.textColor = .gray
+//            cell.contentView.addSubview(valueLabel)
+            cell?.configureCell(setting: setting)
         case .secureTextField:
-            let secureLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150, y: 0,width: 140, height: cell.contentView.frame.height))
-            secureLabel.textAlignment = .right
-            secureLabel.textColor = .gray
-            cell.contentView.addSubview(secureLabel)
+//            let secureLabel = UILabel(frame: CGRect(x:cell.contentView.frame.width - 150, y: 0,width: 140, height: cell.contentView.frame.height))
+//            secureLabel.textAlignment = .right
+//            secureLabel.textColor = .gray
+//            cell.contentView.addSubview(secureLabel)
+            cell?.configureCell(setting: setting)
         case .toggleSwitch:
-            let toggleSwitch = UISwitch(frame: CGRect(x: cell.contentView.frame.width - 60, y: (cell.contentView.frame.height - 31)/2, width: 60, height:0))
-            toggleSwitch.isOn = (setting.value == "Enabled")
-            toggleSwitch.tag = indexPath.section * 100 + indexPath.row
-            toggleSwitch.addTarget(self, action: #selector(toggleSwitchChanged(_:)), for: .valueChanged)
-            cell.contentView.addSubview(toggleSwitch)
+//            let toggleSwitch = UISwitch(frame: CGRect(x: cell.contentView.frame.width - 60, y: (cell.contentView.frame.height - 31)/2, width: 60, height:0))
+//            toggleSwitch.isOn = (setting.value == "Enabled")
+//            toggleSwitch.tag = indexPath.section * 100 + indexPath.row
+//            toggleSwitch.addTarget(self, action: #selector(toggleSwitchChanged(_:)), for: .valueChanged)
+//            cell.contentView.addSubview(toggleSwitch)
+            cell?.configureCell(setting: setting)
             
         }
         
 //        tableView.layer.cornerRadius = 17
 //        cell.layer.cornerRadius = 17
         
-        return cell
+        return cell!
         
     }
     
@@ -117,7 +130,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         switch indexPath.section {
         case 0:
             setting = profileSettings[indexPath.row]
-            
         case 1:
             setting = accountSettings[indexPath.row]
         case 2:
@@ -187,6 +199,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     func updateValue(_ newValue: String, section: Int, row: Int){
         switch section{
             case 0:
+            
             profileSettings[row].value = newValue
             
             case 1:
@@ -199,13 +212,13 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
                 break
         }
         
-        settingsTableView.reloadData()
+        let indexPath = IndexPath(row: row, section: section)
+            settingsTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     
     
 //    Outlets
-    @IBOutlet var userProfilePicture: UIImageView!
     @IBOutlet var settingsTableView: UITableView!
     
 
@@ -215,10 +228,19 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
+        
+        profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
+        
+        
+        profilePicture?.clipsToBounds = true
+//        profilePicture.layer.borderWidth = 1
+        
+        //profilePicture.clipsToBounds
 
         // Do any additional setup after loading the view.
     }
     
+//    MARK: Image Manipulation
     
     @IBAction func EditButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "Edit Profile", message: nil, preferredStyle: .actionSheet)
@@ -250,11 +272,26 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(alertController, animated: true, completion: nil)
     }
     
+//    MARK: Image picker addition
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         
-        userProfilePicture.image = selectedImage
+        profilePicture.image = selectedImage
+        
+        
+        
+        profilePicture?.layer.cornerRadius = (profilePicture?.frame.size.width ?? 0.0) / 2
+        
+        
+        profilePicture?.clipsToBounds = true
+        profilePicture.layer.borderWidth = 1
+        
+        
+        
         dismiss(animated: true, completion: nil)
+        
+        
         
     }
 
