@@ -56,15 +56,15 @@
 
                             <searchBar contentMode="redraw" placeholder="Search Artworks, Artist, Auctions" translatesAutoresizingMaskIntoConstraints="NO" id="Zfs-2Z-smf">
 
-                            <searchBar contentMode="redraw" ambiguous="YES" placeholder="Search Artworks, Artist, Auctions" translatesAutoresizingMaskIntoConstraints="NO" id="Zfs-2Z-smf">
-
-                                <rect key="frame" x="0.0" y="163" width="393" height="56"/>
-
-                                <color key="barTintColor" red="0.89803922179999995" green="0.87843137979999997" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FQy-oh-yik"/>
-                                </connections>
+<!--                            <searchBar contentMode="redraw" ambiguous="YES" placeholder="Search Artworks, Artist, Auctions" translatesAutoresizingMaskIntoConstraints="NO" id="Zfs-2Z-smf">-->
+<!---->
+<!--                                <rect key="frame" x="0.0" y="163" width="393" height="56"/>-->
+<!---->
+<!--                                <color key="barTintColor" red="0.89803922179999995" green="0.87843137979999997" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>-->
+<!--                                <textInputTraits key="textInputTraits"/>-->
+<!--                                <connections>-->
+<!--                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FQy-oh-yik"/>-->
+<!--                                </connections>-->
                             </searchBar>
 
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIH-UY-dcs">
