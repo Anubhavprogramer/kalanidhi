@@ -20,6 +20,8 @@ struct YourPortfolioHomePageCard: Codable {
     }
 }
 
+// array for Your portfolio Card
+
 let YourPortfolioHomePageCardData: [YourPortfolioHomePageCard] = [
     YourPortfolioHomePageCard(Image: "image1", cost: 100, rate: 10),
     YourPortfolioHomePageCard(Image: "image2", cost: 200, rate: 20),
